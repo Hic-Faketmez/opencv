@@ -95,9 +95,9 @@ hist_values = cv2.calcHist([eq_image], channels=[0], mask=mask, histSize=[256], 
 # plt.title('Masked Grayscale Histogram after Equalization')
 # plt.show()
 
-hsv = cv2.cvtColor(real_img, cv2.COLOR_BGR2HSV)
-# print (hsv[:, :, 2].max())
-# print (hsv[:, :, 2].min())
+hsv = cv2.cvtColor(show_img, cv2.COLOR_BGR2HSV)
+print (hsv[:, :, 2].max())
+print (hsv[:, :, 2].min())
 
 hsv[:, :, 2] = cv2.equalizeHist(hsv[:, :, 2])
 eq_color_img = cv2.cvtColor(hsv, cv2.COLOR_HSV2BGR)
