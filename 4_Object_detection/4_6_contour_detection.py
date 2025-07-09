@@ -1,4 +1,4 @@
-# Drawing counters using Canny Edge Detection
+# Drawing contours using Canny Edge Detection
 # This code detects a grid pattern in an image using Canny edge detection and corner detection.
 import cv2
 import numpy as np
