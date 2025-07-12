@@ -7,7 +7,8 @@ from sklearn.preprocessing import MinMaxScaler
 from sklearn.metrics import confusion_matrix, classification_report
 from keras.models import Sequential
 from keras.layers import Dense
-from keras import load_model
+from keras import saving
+# from keras import load_model
 
 data_path = 'bank_note_data.txt'
 
@@ -36,7 +37,10 @@ print(model.fit(scaled_X_train,y_train,epochs=50,verbose=2))
 
 # model.predict(scaled_X_test)
 
-predictions = model.predict_classes(scaled_X_test)
+predictions=(model.predict(scaled_X_test) > 0.5).astype("int32")
+# predictions = np.argmax (model.predict(scaled_X_test), axis=1)
+
+# print(f"predictions: {predictions}")
 
 matrix = confusion_matrix(y_test, predictions)
 print (matrix)
@@ -44,6 +48,16 @@ print (matrix)
 report = classification_report(y_test, predictions)
 print(report)
 
-model.save('my_model.h5')
+# model.save('my_model.kras')
 
-new_model = load_model('my_model.h5')
+saving.save_model(model, 'my_model.keras')
+
+new_model = saving.load_model('my_model.keras')
+
+new_predictions=(new_model.predict(scaled_X_test) > 0.5).astype("int32")
+
+new_matrix = confusion_matrix(y_test, new_predictions)
+print (f"new_matrix: {new_matrix}")
+
+new_report = classification_report(y_test, new_predictions)
+print(f"new_report: {new_report}")
