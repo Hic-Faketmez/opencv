@@ -2,13 +2,15 @@
 
 import numpy as np
 from numpy import genfromtxt
+
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import MinMaxScaler
 from sklearn.metrics import confusion_matrix, classification_report
+
 from keras.models import Sequential
 from keras.layers import Dense
 from keras import saving
-# from keras import load_model
+
 
 data_path = 'data/bank_note_data.txt'
 
