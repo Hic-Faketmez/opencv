@@ -1,5 +1,5 @@
 
-\# 🧠 Deep Learning for Computer Vision (Docker Environment)
+🧠 Deep Learning for Computer Vision (Docker Environment)
 
 
 This repository provides a complete Docker-based environment for deep learning projects focused on computer vision using \*\*Python\*\*, \*\*Keras\*\*, and \*\*OpenCV\*\*.
@@ -9,7 +9,7 @@ It is designed to ensure package compatibility, avoid local dependency conflicts
 
 ---
 
-\## 📦 Pre-installed Packages
+📦 Pre-installed Packages
 
 \- Python 3.11
 
@@ -27,7 +27,7 @@ It is designed to ensure package compatibility, avoid local dependency conflicts
 
 ---
 
-\## 💻 Requirements
+💻 Requirements
 
 Before you begin, please ensure that the following are installed on your system:
 
@@ -39,9 +39,9 @@ Before you begin, please ensure that the following are installed on your system:
 
 ---
 
-\## ⚙️ Setup Instructions
+⚙️ Setup Instructions
 
-\### 1. Clone or download the project
+1. Clone or download the project
 
 If you are using version control:
 
@@ -57,7 +57,7 @@ Or just ensure your `Dockerfile` and `deeplearning_workspace/` are located in th
 
 ---
 
-\### 2. Build the Docker Image
+2. Build the Docker Image
 
 
 Use the provided `Dockerfile` to build the custom deep learning environment:
@@ -73,11 +73,11 @@ This command will create an image named `deeplearning`.
 
 ---
 
-\### 3. Create and Run the Container
+3. Create and Run the Container
 
 Use the following command to run the container and mount your project directory:
 
-\#### On macOS/Linux or Git Bash:
+On macOS/Linux or Git Bash:
 
 ```bash
 
@@ -85,7 +85,7 @@ docker run -it --name mydeeplearning -v ${PWD}/deeplearning_workspace:/deeplearn
 
 ```
 
-\#### On Windows CMD:
+On Windows CMD:
 
 ```cmd
 
@@ -97,7 +97,7 @@ This mounts the local folder `deeplearning_workspace` into the container at `/de
 
 ---
 
-\### 4. Work Inside the Container
+4. Work Inside the Container
 
 Once the container starts, navigate to your working directory:
 
@@ -105,7 +105,7 @@ Once the container starts, navigate to your working directory:
 
 cd /deeplearning/src
 
-python main.py
+python 6_1_Keras_Basics.py
 
 ```
 
@@ -113,7 +113,7 @@ You can edit code from your host using VS Code, and run it from inside the conta
 
 ---
 
-\## 📁 Recommended Directory Structure
+📁 Recommended Directory Structure
 
 ```
 
@@ -149,7 +149,7 @@ You can edit code from your host using VS Code, and run it from inside the conta
 
 ---
 
-\## 🧪 Using JupyterLab (Optional)
+🧪 Using JupyterLab (Optional)
 
 If you want to run JupyterLab inside the container:
 
@@ -185,7 +185,7 @@ http://localhost:8888/?token=YOUR\_TOKEN
 
 ---
 
-\## 🔧 Useful Docker Commands
+🔧 Useful Docker Commands
 
 | Task              | Command                           |
 
@@ -205,7 +205,7 @@ http://localhost:8888/?token=YOUR\_TOKEN
 
 ---
 
-\## ⚠️ Known Limitations
+⚠️ Known Limitations
 
 \* Docker Desktop on \*\*Windows/macOS does not support direct access to camera or microphone\*\*.
 
@@ -215,7 +215,7 @@ http://localhost:8888/?token=YOUR\_TOKEN
 
 ---
 
-\## 📝 License \& Contributions
+📝 License \& Contributions
 
 Feel free to fork this repository, improve it, or open pull requests.
 
@@ -223,9 +223,9 @@ If you have ideas or suggestions for improvement, contributions are welcome!
 
 ---
 
-\## 🙋‍♂️ Author
+🙋‍♂️ Author
 
-Created by \*\*\\\[Xamax]\*\*
+Created by Xamax
 
 Contact: \[hicfarketmezfarkeder@gmail.com](mailto:hicfarketmezfarkeder@gmail.com)
 

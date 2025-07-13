@@ -10,7 +10,7 @@ from keras.layers import Dense
 from keras import saving
 # from keras import load_model
 
-data_path = 'bank_note_data.txt'
+data_path = 'data/bank_note_data.txt'
 
 data=genfromtxt(data_path, delimiter=',')
 labels=data[:,4]
@@ -50,9 +50,9 @@ print(report)
 
 # model.save('my_model.kras')
 
-saving.save_model(model, 'my_model.keras')
+saving.save_model(model, 'models/my_model.keras')
 
-new_model = saving.load_model('my_model.keras')
+new_model = saving.load_model('models/my_model.keras')
 
 new_predictions=(new_model.predict(scaled_X_test) > 0.5).astype("int32")
 
