@@ -1,7 +1,4 @@
 
-\#📄 `README.md`
-
-
 \# 🧠 Deep Learning for Computer Vision (Docker Environment)
 
 
@@ -52,11 +49,11 @@ If you are using version control:
 
 git clone https://github.com/Hic-Faketmez/opencv.git
 
-cd opencv/6\_Deep\_Learning\_for\_CV
+cd opencv/6_Deep_Learning_for_CV
 
 ````
 
-Or just ensure your `Dockerfile` and `deeplearning\_workspace/` are located in the same directory.
+Or just ensure your `Dockerfile` and `deeplearning_workspace/` are located in the same directory.
 
 ---
 
@@ -84,7 +81,7 @@ Use the following command to run the container and mount your project directory:
 
 ```bash
 
-docker run -it --name mydeeplearning -v ${PWD}/deeplearning\_workspace:/deeplearning deeplearning
+docker run -it --name mydeeplearning -v ${PWD}/deeplearning_workspace:/deeplearning deeplearning
 
 ```
 
@@ -92,11 +89,11 @@ docker run -it --name mydeeplearning -v ${PWD}/deeplearning\_workspace:/deeplear
 
 ```cmd
 
-docker run -it --name mydeeplearning -v %cd%\\deeplearning\_workspace:/deeplearning deeplearning
+docker run -it --name mydeeplearning -v %cd%\\deeplearning_workspace:/deeplearning deeplearning
 
 ```
 
-This mounts the local folder `deeplearning\_workspace` into the container at `/deeplearning`.
+This mounts the local folder `deeplearning_workspace` into the container at `/deeplearning`.
 
 ---
 
@@ -120,15 +117,15 @@ You can edit code from your host using VS Code, and run it from inside the conta
 
 ```
 
-6\_Deep\_Learning\_for\_CV/
+6_Deep_Learning_for_CV/
 
 ├── Dockerfile
 
-├── deeplearning\_workspace/
+├── deeplearning_workspace/
 
 │   ├── src/
 
-│   │   └── 6\_1\_Keras\_Basics.py
+│   │   └── 6_1_Keras_Basics.py
 
 │   ├── data/
 
@@ -162,7 +159,7 @@ If you want to run JupyterLab inside the container:
 
 docker run -it -p 8888:8888 --name mydeeplearning \\
 
-&nbsp; -v ${PWD}/deeplearning\_workspace:/deeplearning \\
+&nbsp; -v ${PWD}/deeplearning_workspace:/deeplearning \\
 
 &nbsp; deeplearning
 
@@ -214,7 +211,7 @@ http://localhost:8888/?token=YOUR\_TOKEN
 
 \* If you need webcam or microphone access, consider running your scripts on your \*\*native Python environment\*\* instead of Docker.
 
-\* You can still process image/audio/video files inside the container by mounting them into `deeplearning\_workspace`.
+\* You can still process image/audio/video files inside the container by mounting them into `deeplearning_workspace`.
 
 ---
 
