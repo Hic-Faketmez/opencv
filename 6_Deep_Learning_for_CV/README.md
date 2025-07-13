@@ -129,6 +129,8 @@ You can edit code from your host using VS Code, and run it from inside the conta
 
 │   │   └── 6_2_Keras_CNN_MNIST.py
 
+│   │   └── 6_3_Keras_CNN_CIFAR_10.py
+
 │   ├── data/
 
 │   ├── notebooks/

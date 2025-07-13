@@ -75,10 +75,10 @@ metrics = pd.DataFrame(model.history.history)
 print(metrics.head())
 
 loss_metrics = metrics[['loss', 'val_loss']].plot()
-plt.show(loss_metrics)
+plt.show()
 
 acc_metrics = metrics[['accuracy', 'val_accuracy']].plot()
-plt.show(acc_metrics)
+plt.show()
 
 print("model evaluation:", model.evaluate(x_test, y_cat_test, verbose=0))
 
