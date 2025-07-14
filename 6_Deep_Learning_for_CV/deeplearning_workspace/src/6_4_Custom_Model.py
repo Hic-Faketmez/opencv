@@ -71,7 +71,7 @@ model.compile(loss='binary_crossentropy',
               optimizer='adam', 
               metrics=['accuracy'])
 
-model.summary()
+print(model.summary())
 
 early_stopping = EarlyStopping(monitor='val_loss', patience=2, verbose=1)
 
