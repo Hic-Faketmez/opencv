@@ -11,6 +11,9 @@ from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Conv2D, MaxPool2D, Dense, Flatten, Dropout
 from tensorflow.keras. callbacks import EarlyStopping
 
+from tensorflow.keras.preprocessing import image
+
+from keras import saving
 
 image_gen = ImageDataGenerator(rotation_range=25, # rotate the image 25 degrees
                                width_shift_range=0.10, # Shift the pic width by a max of 10%
@@ -21,8 +24,8 @@ image_gen = ImageDataGenerator(rotation_range=25, # rotate the image 25 degrees
                                horizontal_flip=True, # Allo horizontal flipping
                                fill_mode='nearest' # Fill in missing pixels with the nearest filled value
                               )
-train_path = "C:\Users\pc\Desktop\Yaz\opencv\6_Deep_Learning_for_CV\deeplearning_workspace\data\CATS_DOGS\train"
-test_path = "C:\Users\pc\Desktop\Yaz\opencv\6_Deep_Learning_for_CV\deeplearning_workspace\data\CATS_DOGS\test"
+train_path = "C:/Users/pc/Desktop/Yaz/opencv/6_Deep_Learning_for_CV/deeplearning_workspace/data/CATS_DOGS/train"
+test_path = "C:/Users/pc/Desktop/Yaz/opencv/6_Deep_Learning_for_CV/deeplearning_workspace/data/CATS_DOGS/test"
 image_gen.flow_from_directory(train_path)
 image_gen.flow_from_directory(test_path)
 
@@ -69,4 +72,51 @@ model.compile(loss='binary_crossentropy',
               metrics=['accuracy'])
 
 model.summary()
+
+early_stopping = EarlyStopping(monitor='val_loss', patience=2, verbose=1)
+
+batch_size = 16 # 16 images at a time
+
+train_image_gen = image_gen.flow_from_directory(train_path,
+                                                target_size=image_shape[:2], #only care about width and height of image
+                                                color_mode='rgb',
+                                                batch_size=batch_size,
+                                                class_mode='binary')
+test_image_gen = image_gen.flow_from_directory(test_path,
+                                               target_size=image_shape[:2],
+                                               color_mode='rgb',
+                                               batch_size=batch_size,
+                                               class_mode='binary',
+                                               shuffle=False) # shuffle false
+
+print (train_image_gen.class_indices)
+
+print (test_image_gen.class_indices)
+
+results = model.fit_generator(train_image_gen,
+          validation_data=test_image_gen,
+          validation_steps=12,
+          callbacks=[early_stopping],
+          epochs=2, # 20
+          steps_per_epoch=150,
+          verbose=1)
+
+print(results.history["acc"])
+
+saving.save_model(model, 'models/catsanddogs.keras')
+
+# Prediction
+new_model = saving.load_model('models/catsanddogs.keras')
+
+dog_file = "C:/Users/pc/Desktop/Yaz/opencv/6_Deep_Learning_for_CV/deeplearning_workspace/data/CATS_DOGS/test/DOG/9374.jpg"
+
+dog_img = image.load_img(dog_file, target_size=(150,150))
+
+dog_img = image.img_to_array(dog_img)
+
+dog_img = np.expand_dims(dog_img, axis=0) # add a batch dimension
+
+dog_img = dog_img / 255
+
+print(new_model.predict_classes(dog_img))
 
