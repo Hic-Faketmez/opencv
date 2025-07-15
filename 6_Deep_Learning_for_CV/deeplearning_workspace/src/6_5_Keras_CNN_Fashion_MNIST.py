@@ -86,7 +86,7 @@ plt.show()
 
 print("model evaluation:", model.evaluate(x_test, y_cat_test, verbose=0))
 
-predictions = np.argmax(model.predict(x_test), axis=-1)
+predictions = np.argmax(model.predict_classes(x_test), axis=-1)
 
 matrix = confusion_matrix(y_test, predictions)
 print("confusion matrix:", matrix)
