@@ -1,7 +1,7 @@
-# Daha uyumlu temel imaj
+# image
 FROM python:3.11-bullseye
 
-# Sistem kütüphanelerini yükle
+# System libraries
 RUN apt-get update && apt-get install -y \
     build-essential \
     libgl1 \
@@ -11,7 +11,7 @@ RUN apt-get update && apt-get install -y \
     libxrender-dev \
     && rm -rf /var/lib/apt/lists/*
 
-# Python kütüphanelerini yükle
+# Python libraries
 RUN pip install --upgrade pip && pip install --no-cache-dir \
     tensorflow==2.16.1 \
     keras \
@@ -21,10 +21,11 @@ RUN pip install --upgrade pip && pip install --no-cache-dir \
     pandas \
     matplotlib \
     seaborn \
-    jupyterlab
+    jupyterlab \
+    ultralytics
 
-# Çalışma dizini
+# Working directory
 WORKDIR /deeplearning
 
-# Varsayılan komut
+# Command to run
 CMD ["bash"]

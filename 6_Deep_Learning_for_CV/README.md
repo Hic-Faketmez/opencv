@@ -25,6 +25,8 @@ It is designed to ensure package compatibility, avoid local dependency conflicts
 
 \- JupyterLab
 
+\- ultralytics
+
 ---
 
 💻 Requirements
@@ -130,6 +132,12 @@ You can edit code from your host using VS Code, and run it from inside the conta
 │   │   └── 6_2_Keras_CNN_MNIST.py
 
 │   │   └── 6_3_Keras_CNN_CIFAR_10.py
+
+│   │   └── 6_4_Custom_Model.py
+
+│   │   └── 6_5_Keras_CNN_Fashion_MNIST.py
+
+│   │   └── 6_6_YOLO_v8.py
 
 │   ├── data/
 
